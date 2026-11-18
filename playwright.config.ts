@@ -8,7 +8,7 @@ export default defineConfig({
   workers: process.env.CI ? 1 : undefined,   /* Opt out of parallel tests on CI. */
   reporter: 'html',
   use: {
-    baseURL: 'https://www.saucedemo.com',
+    baseURL: 'https://organize-tasks-one-delta.vercel.app',
     trace: 'on-first-retry',
     testIdAttribute: 'data-test',
   },

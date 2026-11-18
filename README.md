@@ -1,6 +1,6 @@
 # Organize Tasks – E2E Tests
 
-End-to-end (E2E) test project for the [Sauce Demo](https://www.saucedemo.com) website, written with **Playwright** and **TypeScript**, following the **Page Object Model (POM)** pattern.
+End-to-end (E2E) test project for the [Organize Tasks](https://organize-tasks-one-delta.vercel.app) website, written with **Playwright** and **TypeScript**, following the **Page Object Model (POM)** pattern.
 
 > 📌 **Status:** work in progress.
 
