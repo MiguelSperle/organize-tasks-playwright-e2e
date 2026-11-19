@@ -6,7 +6,7 @@ type User = {
         };
         password: string;
     };
-}
+};
 
 export const user: User = {
     credentials: {
