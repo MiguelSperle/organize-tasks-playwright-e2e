@@ -8,9 +8,9 @@ export class AuthenticationPage {
 
     constructor(readonly page: Page) {
         this.identifierInput = this.page.getByLabel('Email or Username');
-        this.passwordInput = this.page.getByLabel('Password', { exact: true });
+        this.passwordInput = this.page.getByLabel('Password');
         this.authenticationButton = this.page.getByRole('button', { name: 'Sign in' });
-        this.error = this.page.getByTestId('error');
+        this.error = this.page.getByTestId('auth-error-message');
     }
 
     async goto() {

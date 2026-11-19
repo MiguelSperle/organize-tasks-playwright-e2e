@@ -9,8 +9,7 @@ export default defineConfig({
   reporter: 'html',
   use: {
     baseURL: 'https://organize-tasks-one-delta.vercel.app',
-    trace: 'on-first-retry',
-    testIdAttribute: 'data-test',
+    trace: 'on-first-retry'
   },
   projects: [
     {

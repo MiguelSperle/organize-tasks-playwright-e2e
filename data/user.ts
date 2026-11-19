@@ -1,6 +1,6 @@
 type User = {
     credentials: {
-        identifier: {
+        identifiers: {
             email: string;
             username: string;
         };
@@ -10,7 +10,7 @@ type User = {
 
 export const user: User = {
     credentials: {
-        identifier: {
+        identifiers: {
             email: 'demo@organizetasks.com',
             username: 'demo.user'
         },
