@@ -6,6 +6,9 @@ type User = {
         };
         password: string;
     };
+    profile: {
+        name: string;
+    }
 };
 
 export const user: User = {
@@ -15,5 +18,8 @@ export const user: User = {
             username: 'demo.user'
         },
         password: 'demotasks6'
+    },
+    profile: {
+        name: 'Demo User'
     }
 };
