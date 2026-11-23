@@ -1,9 +1,8 @@
-import { Page, Locator } from '@playwright/test';
+import { Page } from '@playwright/test';
 
 export class TaskManagementPage {
 
     constructor(readonly page: Page) {
-
     }
 
     async goto() {
