@@ -66,7 +66,7 @@ test.describe('registration', () => {
         test(`should display an error when registration has ${scenario}`, async ({ pm }) => {
             await pm.onRegistrationPage().registerUser(name, username, email, password);
 
-            await expect(pm.onRegistrationPage().error).toHaveText(message);
+            await expect(pm.onRegistrationPage().errorMessage).toHaveText(message);
         });
     };
 
@@ -76,7 +76,7 @@ test.describe('registration', () => {
             'invalid_email', user.credentials.password
         );
 
-        await expect(pm.onRegistrationPage().error).toHaveText('Enter a valid email address');
+        await expect(pm.onRegistrationPage().errorMessage).toHaveText('Enter a valid email address');
     });
 
     test('should display an error when registration has a password shorter than 8 characters', async ({ pm }) => {
@@ -85,7 +85,7 @@ test.describe('registration', () => {
             user.credentials.identifiers.email, '1234567'
         );
 
-        await expect(pm.onRegistrationPage().error).toHaveText('Use a password with at least 8 characters');
+        await expect(pm.onRegistrationPage().errorMessage).toHaveText('Use a password with at least 8 characters');
     });
 
     test('should display an error when registration data differs from the accepted user data', async ({ pm }) => {
@@ -94,6 +94,6 @@ test.describe('registration', () => {
             'somedifferentemail@gmail.com', 'somedifferentpassword'
         );
 
-        await expect(pm.onRegistrationPage().error).toHaveText('Only the user data shown below is accepted');
+        await expect(pm.onRegistrationPage().errorMessage).toHaveText('Only the user data shown below will be accepted');
     });
 });

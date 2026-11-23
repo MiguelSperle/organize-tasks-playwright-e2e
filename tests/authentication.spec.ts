@@ -17,7 +17,7 @@ test.describe('authentication', () => {
 
             expect(sessionCookie).toBeDefined();
 
-            await expect(page).toHaveURL('/#home');
+            await expect(page).toHaveURL('/manage-tasks');
         });
     };
 
@@ -31,7 +31,7 @@ test.describe('authentication', () => {
         test(`should display an error when authentication has ${scenario}`, async ({ pm }) => {
             await pm.onAuthenticationPage().authenticateUser(identifier, password);
 
-            await expect(pm.onAuthenticationPage().error).toHaveText(message);
+            await expect(pm.onAuthenticationPage().errorMessage).toHaveText(message);
         });
     };
 
@@ -45,7 +45,7 @@ test.describe('authentication', () => {
         test(`should display an error when authentication has ${scenario}`, async ({ pm }) => {
             await pm.onAuthenticationPage().authenticateUser(identifier, password);
 
-            await expect(pm.onAuthenticationPage().error).toHaveText('Incorrect credentials');
+            await expect(pm.onAuthenticationPage().errorMessage).toHaveText('Incorrect credentials');
         });
     };
 });
