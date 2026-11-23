@@ -22,9 +22,9 @@ test.describe('authentication', () => {
     };
 
     const emptyFields = [
-        { scenario: 'an empty identifier and an empty password', identifier: '', password: '', message: 'Enter your email or username' },
-        { scenario: 'an empty identifier', identifier: '', password: user.credentials.password, message: 'Enter your email or username' },
-        { scenario: 'an empty password', identifier: user.credentials.identifiers.email, password: '', message: 'Enter a password' },
+        { scenario: 'all empty fields', identifier: '', password: '', message: 'Please fill in the fields' },
+        { scenario: 'an empty identifier field', identifier: '', password: user.credentials.password, message: 'Enter your email or username' },
+        { scenario: 'an empty password field', identifier: user.credentials.identifiers.email, password: '', message: 'Enter a password' },
     ];
 
     for (const { scenario, identifier, password, message } of emptyFields) {
@@ -36,9 +36,9 @@ test.describe('authentication', () => {
     };
 
     const incorrectCredentials = [
-        { scenario: 'an invalid password', identifier: user.credentials.identifiers.email, password: 'invalid_password' },
-        { scenario: 'an invalid identifier', identifier: 'invalid_identifier', password: user.credentials.password },
-        { scenario: 'an invalid identifier and an invalid password', identifier: 'invalid_identifier', password: 'invalid_password' }
+        { scenario: 'an incorrect password', identifier: user.credentials.identifiers.email, password: 'incorrect_password' },
+        { scenario: 'an incorrect identifier', identifier: 'incorrect_identifier', password: user.credentials.password },
+        { scenario: 'all incorrect credentials', identifier: 'incorrect_identifier', password: 'incorrect_password' }
     ];
 
     for (const { scenario, identifier, password } of incorrectCredentials) {
