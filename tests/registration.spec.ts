@@ -94,6 +94,6 @@ test.describe('registration', () => {
             'somedifferentemail@gmail.com', 'somedifferentpassword'
         );
 
-        await expect(pm.onRegistrationPage().errorMessage).toHaveText('Only the user data shown below will be accepted');
+        await expect(pm.onRegistrationPage().errorMessage).toHaveText('Only the user data displayed below will be accepted');
     });
 });
