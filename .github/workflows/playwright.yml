@@ -12,6 +12,9 @@ concurrency:
   # Cancela execuções antigas do workflow para dar lugar à nova execução, apenas em pull requests
   cancel-in-progress: ${{ github.event_name == 'pull_request' }}
 
+env:
+  BASE_URL: ${{ vars.BASE_URL }}
+
 jobs:
   full:
     if: github.event_name == 'push' || github.event_name == 'pull_request'

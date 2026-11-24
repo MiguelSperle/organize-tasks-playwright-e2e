@@ -1,4 +1,5 @@
 import { defineConfig, devices } from '@playwright/test';
+import 'dotenv/config';
 
 export default defineConfig({
   testDir: './tests',
@@ -8,7 +9,7 @@ export default defineConfig({
   workers: process.env.CI ? 1 : undefined,   /* Opt out of parallel tests on CI. */
   reporter: 'html',
   use: {
-    baseURL: 'https://organize-tasks-one-delta.vercel.app',
+    baseURL: process.env.BASE_URL,
     trace: 'on-first-retry'
   },
   projects: [
