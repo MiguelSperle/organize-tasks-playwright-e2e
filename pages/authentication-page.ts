@@ -13,11 +13,11 @@ export class AuthenticationPage {
         this.errorMessage = this.page.getByTestId('authentication-error-message');
     }
 
-    async goto() {
+    async goto(): Promise<void> {
         await this.page.goto('/');
     }
 
-    async authenticateUser(identifier: string, password: string) {
+    async authenticateUser(identifier: string, password: string): Promise<void> {
         await this.identifierInput.fill(identifier);
         await this.passwordInput.fill(password);
         await this.authenticateButton.click();

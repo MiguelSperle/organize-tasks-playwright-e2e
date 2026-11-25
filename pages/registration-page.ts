@@ -19,11 +19,11 @@ export class RegistrationPage {
         this.errorMessage = this.page.getByTestId('registration-error-message');
     }
 
-    async goto() {
+    async goto(): Promise<void> {
         await this.page.goto('/register');
     }
 
-    async registerUser(name: string, username: string, email: string, password: string) {
+    async registerUser(name: string, username: string, email: string, password: string): Promise<void> {
         await this.nameInput.fill(name);
         await this.usernameInput.fill(username);
         await this.emailInput.fill(email);
