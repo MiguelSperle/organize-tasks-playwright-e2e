@@ -23,16 +23,24 @@ export class TaskManagementPage {
         await this.page.goto('/manage-tasks');
     }
 
-    async createTask(title: string, description: string, dueDate: string, status: string): Promise<void> {
-        await this.newTaskButton.click();
+    async fillTaskForm(title: string, description: string, dueDate: string, status: string): Promise<void> {
         await this.titleInput.fill(title);
         await this.descriptionInput.fill(description);
         await this.dueDateInput.fill(dueDate);
         await this.statusDropdown.selectOption(status);
+    }
+
+    async createTask(title: string, description: string, dueDate: string, status: string): Promise<void> {
+        await this.newTaskButton.click();
+        await this.fillTaskForm(title, description, dueDate, status);
         await this.createTaskButton.click();
     }
 
     toast(message: string): Locator {
         return this.page.getByText(message);
+    }
+
+    taskFilter(title: string): Locator {
+        return this.tasks.filter({ hasText: title });
     }
 }

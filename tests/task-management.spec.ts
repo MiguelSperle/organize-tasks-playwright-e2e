@@ -14,7 +14,7 @@ test.describe('task management', () => {
             tasks[0].title, tasks[0].description, tasks[0].dueDate, tasks[0].status
         );
 
-        await expect(pm.onTaskManagementPage().tasks).toHaveCount(1);
         await expect(pm.onTaskManagementPage().toast('Task created')).toBeVisible();
+        await expect(pm.onTaskManagementPage().taskFilter(tasks[0].title)).toBeVisible();
     });
 });
