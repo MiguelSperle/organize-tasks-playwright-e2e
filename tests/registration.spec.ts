@@ -1,6 +1,15 @@
 import { test, expect } from '../fixtures';
 import { user } from '../data/user';
 
+type EmptyRegistrationField = {
+    scenario: string;
+    name: string;
+    username: string;
+    email: string;
+    password: string;
+    message: string;
+};
+
 test.describe('registration', () => {
     test.beforeEach(async ({ pm }) => {
         await pm.onRegistrationPage().goto();
@@ -19,7 +28,7 @@ test.describe('registration', () => {
         await expect(pm.onRegistrationPage().passwordInput).toBeEmpty();
     });
 
-    const emptyFields = [
+    const emptyRegistrationFields: EmptyRegistrationField[] = [
         {
             scenario: 'all empty fields',
             name: '', username: '', email: '', password: '',
@@ -62,13 +71,13 @@ test.describe('registration', () => {
         }
     ];
 
-    for (const { scenario, name, username, email, password, message } of emptyFields) {
+    for (const { scenario, name, username, email, password, message } of emptyRegistrationFields) {
         test(`should display an error when registration has ${scenario}`, async ({ pm }) => {
             await pm.onRegistrationPage().registerUser(name, username, email, password);
 
             await expect(pm.onRegistrationPage().errorMessage).toHaveText(message);
         });
-    };
+    }
 
     test('should display an error when registration has an invalid email', async ({ pm }) => {
         await pm.onRegistrationPage().registerUser(

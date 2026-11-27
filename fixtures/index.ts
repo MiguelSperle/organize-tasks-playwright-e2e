@@ -1,5 +1,6 @@
 import { test as base } from '@playwright/test';
 import { PageManager } from '../pages/manager/page-manager';
+import { tasks } from '../data/tasks';
 
 /**
  * Responsabilidades:
@@ -14,11 +15,22 @@ import { PageManager } from '../pages/manager/page-manager';
 
 type TestFixtures = {
     pm: PageManager;
+    taskInStorage: void;
 };
 
 export const test = base.extend<TestFixtures>({
     pm: async ({ page }, use) => {
         await use(new PageManager(page));
+    },
+
+    taskInStorage: async ({ page }, use) => {
+        await page.evaluate((task) => {
+            window.localStorage.setItem('tasks', JSON.stringify([task]));
+        }, tasks[0]);
+
+        await page.reload({ waitUntil: 'load' });
+
+        await use();
     }
 });
 
