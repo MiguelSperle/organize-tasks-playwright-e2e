@@ -29,7 +29,7 @@ test.describe('task management', () => {
         );
 
         await expect(pm.onTaskManagementPage().toast('Task created')).toBeVisible();
-        await expect(pm.onTaskManagementPage().taskFilter(tasks[0].title)).toHaveCount(1);
+        await expect(pm.onTaskManagementPage().taskFilter(tasks[0].title)).toBeVisible();
     });
 
     test('should successfully update an entire task', async ({ pm, taskInStorage }) => {
